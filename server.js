@@ -2,7 +2,7 @@ const express = require ("express")
 const mysql= require("mysql")
 const myconn = require ("express-myconnection")
 
-
+const routes = require ("./routes")
 
 
 const app = express()
@@ -25,9 +25,9 @@ app.use(myconn(mysql, dbOptions, "single"))
 app.get("/", (req, res)=>{
     res.send ("Bienvenido a Musicando")
 })
-app.get("/api",(req, res)=> {
-    res.send ("Probando API")
-})
+
+app.use("/api", routes)
+
 // servidor corriendo ----------------------
 app.listen(3002, ()=>{
     console.log("Servidor corriendo en el puerto", 3002)
