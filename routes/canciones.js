@@ -63,12 +63,5 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-// INDEX /api/generos
-router.get("/", (req, res) => {
-  db.Generos.findAll(req.params.id).then((generos) => {
-    res.json(generos);
-  });
-});
-
 
 module.exports = router;
