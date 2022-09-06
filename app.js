@@ -17,6 +17,8 @@ app.get("/", function (req, res) {
 
 app.use("/api/canciones", require("./routes/canciones"));
 
+app.use("/api/generos", require("./routes/generos"));
+
 // Arrancamos el servidor
 app.listen(PORT, function () {
   console.log(`La app ha arrancado en http://localhost:${PORT}`);

@@ -32,7 +32,7 @@ router.get("/:id", (req, res) => {
 });
 
 // UPDATE /api/canciones/:id
-router.get("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   db.Canciones.update(
     {
       id: req.body.id,
@@ -62,5 +62,13 @@ router.delete("/:id", (req, res) => {
     res.json(result);
   });
 });
+
+// INDEX /api/generos
+router.get("/", (req, res) => {
+  db.Generos.findAll(req.params.id).then((generos) => {
+    res.json(generos);
+  });
+});
+
 
 module.exports = router;
